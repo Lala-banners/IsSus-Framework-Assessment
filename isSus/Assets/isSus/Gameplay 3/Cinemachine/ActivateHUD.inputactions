@@ -1,0 +1,33 @@
+{
+    "name": "ActivateHUD",
+    "maps": [
+        {
+            "name": "HUD",
+            "id": "4523843f-9128-421e-ba5a-5884894cf170",
+            "actions": [
+                {
+                    "name": "ActivateHUD",
+                    "type": "Button",
+                    "id": "77d884c7-9f06-413b-bedf-f1f6e4c6d4ac",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "de70c65b-66e5-4bec-8173-9181e8f22d9f",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActivateHUD",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

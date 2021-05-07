@@ -20,36 +20,33 @@ namespace IsSus.Sorting
         /// </summary>
         /// <param name="array">The array of numbers that will be sorted.</param>
         /// <param name="totals">The total number of elements in the array.</param>
-        public static void GnomeSort<Color>(Color[] _colours, int totals) where Color : IComparable
+        public static void GnomeSort(int[] arr, int length)
         {
             int index = 0;
-            Renderer _myRend;
 
-            while (index < totals)
-            {
-                // If you are at the start of the array go to the right
-                if (index == 0)
+            while (index < length)
+            { //If there is no pot next to the gnome, he is done.
+                if (index == 0) //If the gnome is at the start of the line...
                 {
-                    index++;
+                    index++;//Gnome steps forward
                 }
 
-                // If the current array element is larger or equal to the previous, then go to the right
-                //if (_colours[index] >= _colours[index - 1])
-                //{
-                //    index++;
-                //}
-
-                // Else if the current array element is smaller than the previous, swap the two and go backwards
-                else
+                //If the pots next to the gnome are in the correct order...
+                if (arr[index] >= arr[index - 1])
                 {
-                    Color temp; //Use a temporary variable to hold the current array element that will be swapped with another
-                    temp = _colours[index];             //Swap the current with the previous 
-                    _colours[index] = _colours[index - 1];
-                    _colours[index - 1] = temp;
-                    index--; //Go backwards
+                    index++;//he goes to the next pot
+                }
+                else //If the pots are in the wrong order, he switches them.
+                {
+                    int temp = 0;
+                    temp = arr[index];
+                    arr[index] = arr[index - 1];
+                    arr[index - 1] = temp;
+                    index--;
                 }
             }
             return;
         }
     }
+    //public static void GnomeSort<T>(int[] arr, int length) where T : IComparable
 }

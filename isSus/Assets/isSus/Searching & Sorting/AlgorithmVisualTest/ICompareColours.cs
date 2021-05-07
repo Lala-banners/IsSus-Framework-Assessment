@@ -4,16 +4,9 @@ using UnityEngine;
 
 namespace IsSus.Sorting
 {
-    public class CompareColours : IComparable
+    public class ICompareColours : IComparable
     {
         //List of colours to compare
-        public List<Color> colours = new List<Color>()
-        {
-            Color.red,
-            Color.blue,
-            Color.yellow,
-            Color.green,
-        };
 
         protected float currentCol;
 
@@ -24,7 +17,7 @@ namespace IsSus.Sorting
                 return 1;
 
             //Write out comparator
-            CompareColours otherCol = obj as CompareColours;
+            ICompareColours otherCol = obj as ICompareColours;
 
             if (otherCol != null)
             {
@@ -43,9 +36,7 @@ namespace IsSus.Sorting
             }
         }
 
-
-
-        public CompareColours(float _col)
+        public ICompareColours(float _col)
         {
             currentCol = _col;
         }

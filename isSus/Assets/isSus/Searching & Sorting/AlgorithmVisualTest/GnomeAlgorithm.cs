@@ -1,9 +1,10 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 namespace IsSus.Sorting
 {
-    public class GnomeSortAlg : IComparable
+    public static class GnomeAlgorithm 
     {
         /* GNOME SORT
          * Also called the stupid sort
@@ -14,29 +15,12 @@ namespace IsSus.Sorting
          * Repeat steps 2 and 3 until the end of the array
          */
 
-        private void Start()
-        {
-            ApplyGnomeSort();
-        }
-
-        private static void ApplyGnomeSort()
-        {
-            int[] array = { 34, 2, 10, -9 }; //The array of numbers to be sorted
-            GnomeSort(array, array.Length);
-            Debug.Log("Sorted sequence after applying Gnome Sort");
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                Debug.Log(array[i] + " ");
-            }
-        }
-
         /// <summary>
         /// This function is the application of the Gnome sort algorithm.
         /// </summary>
         /// <param name="array">The array of numbers that will be sorted.</param>
         /// <param name="totals">The total number of elements in the array.</param>
-        private static void GnomeSort(int[] array, int totals)
+        public static void GnomeSort<T>(int[] array, int totals) where T : IComparable
         {
             int index = 0;
 
@@ -60,11 +44,6 @@ namespace IsSus.Sorting
                 }
             }
             return;
-        }
-
-        public int CompareTo(object obj)
-        {
-            throw new NotImplementedException();
         }
     }
 }

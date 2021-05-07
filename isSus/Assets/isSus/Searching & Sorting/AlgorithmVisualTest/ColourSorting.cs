@@ -4,19 +4,19 @@ using UnityEngine;
 
 namespace IsSus.Sorting
 {
-    public class VisualGnomeSort : MonoBehaviour
+    public class ColourSorting : MonoBehaviour
     {
         #region Public
-        public int numberCubes = 10;
+        public int gnomeAmount = 10;
         public int maxCubeHeight = 10;
-        public GameObject[] cubes;
+        public GameObject[] gnomes;
         #endregion
 
         // Start is called before the first frame update
         void Start()
         {
             InitialiseCubes();
-            GnomeSort(cubes, cubes.Length); //Sort the cubes in the GO array within the number of cubes 
+            GnomeSort(gnomes, gnomes.Length); //Sort the cubes in the GO array within the number of cubes 
         }
 
         //Sorting algorithm test - Gnome Sort - will need to change params to be GO instead of ints
@@ -68,20 +68,20 @@ namespace IsSus.Sorting
 
         public void InitialiseCubes()
         {
-            cubes = new GameObject[numberCubes]; //Make new array of cubes to have the max height
+            gnomes = new GameObject[gnomeAmount]; //Make new array of cubes to have the max height
 
-            for (int i = 0; i < numberCubes; i++)
+            for (int i = 0; i < gnomeAmount; i++)
             {
                 int random = Random.Range(1, maxCubeHeight + 1); //To generate numbers up to the max 
                 GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube); //create cube
                 cube.transform.localScale = new Vector3(0.9f, random, 1); //generate cubes of different heights (in the same position)
                 cube.transform.position = new Vector3(i, random / 2.0f, 0); //Cubes are lined up next to each other
                 cube.transform.parent = transform; //set this GO as the parent holder of the cubes
-                cubes[i] = cube; //assign each cube to the array in the order they are generated
+                gnomes[i] = cube; //assign each cube to the array in the order they are generated
             }
 
             //Setting new position of the cube container to match the camera view
-            transform.position = new Vector3(-numberCubes / 2f, -maxCubeHeight / 2.0f, 0);
+            transform.position = new Vector3(-gnomeAmount / 2f, -maxCubeHeight / 2.0f, 0);
         }
     }
 }

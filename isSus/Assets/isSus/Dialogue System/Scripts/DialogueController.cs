@@ -33,9 +33,11 @@ namespace IsSus.Game.Dialogue
         private DialogueUIDisplay leftUI;
         private DialogueUIDisplay rightUI;
         public GameObject dialogueWindow;
+        public GameObject map;
 
         private void Start()
         {
+            dialogueWindow.SetActive(true);
             rightCharacter.SetActive(false);
             leftUI = leftCharacter.GetComponent<DialogueUIDisplay>();
             rightUI = rightCharacter.GetComponent<DialogueUIDisplay>();
@@ -98,7 +100,5 @@ namespace IsSus.Game.Dialogue
             active.DisplayDialogue();
             inactive.HideDialogue();
         }
-            
-
     }
 }

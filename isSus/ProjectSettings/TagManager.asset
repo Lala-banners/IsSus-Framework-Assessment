@@ -11,6 +11,7 @@ TagManager:
   - Quad4
   - Quad5
   - Quad6
+  - Landmine
   layers:
   - Default
   - TransparentFX

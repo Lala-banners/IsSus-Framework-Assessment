@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using IsSus.Game.Mechanic;
+using TMPro;
 
 namespace IsSus.Game.Controller
 {
@@ -9,13 +10,10 @@ namespace IsSus.Game.Controller
     {
         /* ESSENTIALS IN PC
          * Movement
-         * Jumping
          * Camera look
-         * Shooting + ammo
          * Take Damage
          * Health
          * Die
-         * Gain EXP on kill enemies
         */
 
         #region Hidden Player Stats for Editor
@@ -29,6 +27,10 @@ namespace IsSus.Game.Controller
         public float speed = 1f;
         public float jumpForce = 0.1f;
         public Rigidbody rb;
+
+        [Header("Player Score")]
+        [SerializeField] private int score;
+        public TMP_Text scoreText;
 
         [Header("Player Shooting")]
         [Range(3f, 10f)] public float stunDamage;
@@ -94,6 +96,26 @@ namespace IsSus.Game.Controller
                 lockedOn.GravityLock(rb);
             }
         }
+
+        // OnTriggerEnter is called when the Collider other enters the trigger
+        private void OnTriggerEnter(Collider other)
+        {
+            //Take damage if collide with landmine, and press B
+            if (other.gameObject.CompareTag("Landmine") && Input.GetKeyDown(KeyCode.B))
+            {
+                //If press B, then destroy mine and add to score
+                score++;
+                scoreText.text = score.ToString();
+                Destroy(gameObject);
+            }
+            else
+            {
+                //Take damage
+                TakeDamage(5f);
+            }
+        }
+
+
 
         /// <summary>
         /// This function takes care of the colour changing effect when the player takes damage or heals.

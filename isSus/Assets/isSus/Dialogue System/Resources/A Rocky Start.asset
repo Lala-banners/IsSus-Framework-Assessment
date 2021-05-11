@@ -27,9 +27,9 @@ MonoBehaviour:
   - character: {fileID: 11400000, guid: 93214f208ead8b74dabb0bd6a1225101, type: 2}
     dialogueText: Scanning for lifeforms...
   - character: {fileID: 11400000, guid: 93214f208ead8b74dabb0bd6a1225101, type: 2}
-    dialogueText: Lifeforms detected. Their vital signs suggest intoxication due
-      to radiation from engine damage... they are hostile and must be neutralized.
+    dialogueText: No Lifeforms detected. However age old explosive bombs have been
+      found and must be neutralized.
   - character: {fileID: 11400000, guid: 43ddbf4aab444a442ac0a8aa2deaff30, type: 2}
-    dialogueText: Can you make an antidote to counteract the toxins?
+    dialogueText: 'Can you make an deactivate the bombs? '
   - character: {fileID: 11400000, guid: 93214f208ead8b74dabb0bd6a1225101, type: 2}
     dialogueText: I will need time. It can be done.

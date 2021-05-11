@@ -4,10 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace IsSus.Game
+namespace IsSus.Game.UI
 {
     public class Timer : MonoBehaviour
     {
+        public static Timer instance = null;
+
+        private void Awake()
+        {
+            if (instance == null)
+            {
+                instance = this;
+            }
+            else if (instance != this)
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+
         public float timeRemaining = 10;
         public bool timerIsRunning = false;
         public TMP_Text timeText;

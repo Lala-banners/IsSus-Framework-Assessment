@@ -2,21 +2,30 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.SceneManagement;
 
-public class MenuManager : MonoBehaviour
+namespace IsSus.Game.UI
 {
-    private void Update()
+    public class MenuManager : MonoBehaviour
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        private void Start()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartGame();
+            }
+        }
+
+        public void StartGame()
         {
             SceneManager.LoadScene(1);
-        }
-    }
 
-    public void ExitGame()
-    {
-        #if UNITY_EDITOR
-        EditorApplication.ExitPlaymode();
-        #endif
-        Application.Quit();
+        }
+
+        public void ExitGame()
+        {
+#if UNITY_EDITOR
+            EditorApplication.ExitPlaymode();
+#endif
+            Application.Quit();
+        }
     }
 }

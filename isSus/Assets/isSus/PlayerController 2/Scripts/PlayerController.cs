@@ -2,20 +2,12 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using IsSus.Game.Mechanic;
-using TMPro;
+using IsSus.Game.UI;
 
 namespace IsSus.Game.Controller
 {
     public class PlayerController : MonoBehaviour
     {
-        /* ESSENTIALS IN PC
-         * Movement
-         * Camera look
-         * Take Damage
-         * Health
-         * Die
-        */
-
         #region Hidden Player Stats for Editor
         [HideInInspector] public string playerName = "Player";
         [HideInInspector] public string playerLevel = "1";
@@ -31,6 +23,7 @@ namespace IsSus.Game.Controller
         [Header("Player Score")]
         [SerializeField] private int score;
         public TMP_Text scoreText;
+        public WinMenu win;
 
         [Header("Player Shooting")]
         [Range(3f, 10f)] public float stunDamage;
@@ -97,16 +90,21 @@ namespace IsSus.Game.Controller
             }
         }
 
-        // OnTriggerEnter is called when the Collider other enters the trigger
-        private void OnTriggerEnter(Collider other)
+        // OnTriggerEnter is called when the Collider other stays inside the trigger
+        private void OnTriggerStay(Collider other)
         {
             //Take damage if collide with landmine, and press B
-            if (other.gameObject.CompareTag("Landmine") && Input.GetKeyDown(KeyCode.B))
+            if (other.gameObject.CompareTag("Landmine") && Input.GetKey(KeyCode.B))
             {
-                //If press B, then destroy mine and add to score
+                //If press B, then destroy mine and add to score YES IT WORKS!
                 score++;
                 scoreText.text = score.ToString();
-                Destroy(gameObject);
+                Destroy(other.gameObject);
+
+                if(score == 5)
+                {
+                    win.WinGame();
+                }
             }
             else
             {
@@ -114,8 +112,6 @@ namespace IsSus.Game.Controller
                 TakeDamage(5f);
             }
         }
-
-
 
         /// <summary>
         /// This function takes care of the colour changing effect when the player takes damage or heals.

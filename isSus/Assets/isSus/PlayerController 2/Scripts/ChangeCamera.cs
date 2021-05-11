@@ -7,11 +7,12 @@ namespace IsSus.Game.Mechanic
     {
         public GameObject baseCamera; //outside camera is third person perspective & suitHUD is inside the player's helmet which obscures view of aliens
         public GameObject section2;
+        public GameObject section2_5;
         public GameObject section3;
         public GameObject section4;
         public GameObject section5;
         public GameObject section6;
-        AudioListener baseCamAudio, section2Audio, section3Audio, section4Audio,section5Audio, section6Audio,helmetCamAudioListener;
+        AudioListener baseCamAudio, section2Audio, section2_5Audio, section3Audio, section4Audio,section5Audio, section6Audio,helmetCamAudioListener;
         public GameObject HUD;
 
         public CinemachineVirtualCamera vc;
@@ -22,6 +23,7 @@ namespace IsSus.Game.Mechanic
             //Get the Audio Listener components from each camera 
             baseCamAudio = baseCamera.GetComponent<AudioListener>();
             section2Audio = section2.GetComponent<AudioListener>();
+            section2_5Audio = section2_5.GetComponent<AudioListener>();
             section3Audio = section3.GetComponent<AudioListener>();
             section4Audio = section4.GetComponent<AudioListener>();
             section5Audio = section5.GetComponent<AudioListener>();
@@ -61,6 +63,10 @@ namespace IsSus.Game.Mechanic
             if (Input.GetKeyDown(KeyCode.Alpha6))
             {
                 ActivateSection6();
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                ActivateSection2_5();
             }
             #endregion
         }
@@ -187,6 +193,35 @@ namespace IsSus.Game.Mechanic
             //section6Audio.enabled = false;
         }
 
+        public void ActivateSection2_5()
+        {
+            section2.SetActive(false);
+
+            //Activate Satellite 2.5
+            section2_5.SetActive(true);
+            //section2Audio.enabled = true;
+
+            //Deactivate Base Satellite 
+            baseCamera.SetActive(false);
+            //baseCamAudio.enabled = false;
+
+            //Deactivate Satellite 3
+            section3.SetActive(false);
+            //section3Audio.enabled = false;
+
+            //Deactivate Satellite 4
+            section4.SetActive(false);
+            //section4Audio.enabled = false;
+
+            //Deactivate Satellite 5
+            section5.SetActive(false);
+            //section5Audio.enabled = false;
+
+            //Deactivate Satellite 6
+            section6.SetActive(false);
+            //section6Audio.enabled = false;
+        }
+
         /// <summary>
         /// Activate section 3 satellite and deactivate all others.
         /// </summary>
@@ -203,6 +238,8 @@ namespace IsSus.Game.Mechanic
             //Deactivate Satellite 2
             section2.SetActive(false);
             //section2Audio.enabled = false;
+
+            section2_5.SetActive(false);
 
             //Deactivate Satellite 4
             section4.SetActive(false);
@@ -225,6 +262,8 @@ namespace IsSus.Game.Mechanic
             //Activate Satellite 4
             section4.SetActive(true);
             //section4Audio.enabled = true;
+
+            section2_5.SetActive(false);
 
             //Deactivate Base Satellite
             baseCamera.SetActive(false);
@@ -255,6 +294,8 @@ namespace IsSus.Game.Mechanic
             //Activate Satellite 5
             section5.SetActive(true);
             //section5Audio.enabled = true;
+
+            section2_5.SetActive(false);
 
             //Deactivate Base Satellite
             baseCamera.SetActive(false);
@@ -289,6 +330,8 @@ namespace IsSus.Game.Mechanic
             //Deactivate Base Satellite
             baseCamera.SetActive(false);
             //baseCamAudio.enabled = false;
+
+            section2_5.SetActive(false);
 
             //Deactivate Satellite 2
             section2.SetActive(false);

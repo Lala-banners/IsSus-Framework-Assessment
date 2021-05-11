@@ -11,7 +11,6 @@ namespace IsSus.Sorting
         public GameObject gnomePrefab;
         public GameObject[] gnomes;
 
-
         //List of colours
         private Color[] colours = { Color.green, Color.red, Color.yellow, Color.blue };
 

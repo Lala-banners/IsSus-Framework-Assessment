@@ -21,7 +21,16 @@ namespace IsSus.Sorting
         void Update()
         {
             //Check the material on the gnome and update the rest of the gnomes to match
+            if (Input.GetKey(KeyCode.Space))
+            {
+                StartCoroutine(ColourTransition());
+            }
+        }
+
+        IEnumerator ColourTransition()
+        {
             sort.CheckColour(myMat.color);
+            yield return new WaitForSeconds(1f);
         }
     }
 }

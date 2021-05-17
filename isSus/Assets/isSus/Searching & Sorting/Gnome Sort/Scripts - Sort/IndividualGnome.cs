@@ -20,7 +20,7 @@ namespace IsSus.Sorting
         // Update is called once per frame
         void Update()
         {
-            //Check the material on the gnome and update the rest of the gnomes to match
+            //Check the material on the gnome and update the rest of the gnomes to match IT WORKS!
             if (Input.GetKey(KeyCode.Space))
             {
                 StartCoroutine(ColourTransition());

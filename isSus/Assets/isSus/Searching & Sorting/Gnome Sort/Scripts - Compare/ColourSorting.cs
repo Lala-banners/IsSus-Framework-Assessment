@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace IsSus.Sorting
 {
@@ -10,13 +11,14 @@ namespace IsSus.Sorting
         [Header("Changing Colours")]
         public GameObject gnomePrefab;
         public GameObject[] gnomes;
+        #endregion
 
         //List of colours
         private Color[] colours = { Color.green, Color.red, Color.yellow, Color.blue };
 
         [Header("Shared Material")]
         [SerializeField] private Material sharedMaterial;
-        #endregion
+        
 
         private void Start()
         {

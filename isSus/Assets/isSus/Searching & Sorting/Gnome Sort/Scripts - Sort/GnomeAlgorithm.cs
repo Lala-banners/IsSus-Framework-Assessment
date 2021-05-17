@@ -48,5 +48,4 @@ namespace IsSus.Sorting
             return;
         }
     }
-    //public static void GnomeSort<T>(int[] arr, int length) where T : IComparable
 }

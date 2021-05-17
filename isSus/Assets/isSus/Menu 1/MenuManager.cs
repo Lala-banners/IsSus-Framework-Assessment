@@ -6,18 +6,9 @@ namespace IsSus.Game.UI
 {
     public class MenuManager : MonoBehaviour
     {
-        private void Start()
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                StartGame();
-            }
-        }
-
         public void StartGame()
         {
             SceneManager.LoadScene(1);
-
         }
 
         public void ExitGame()
